@@ -1,25 +1,38 @@
-# Stage 1: Build the frontend application
-FROM node:14 AS build-frontend
+# Use the official Node.js image as the base image
+FROM node:14
+
+# Set the working directory for the server
+WORKDIR /app/server
+
+# Copy server package.json and package-lock.json
+COPY server/package*.json ./
+
+# Install server dependencies
+RUN npm install
+
+# Copy the rest of the server code
+COPY server/ .
+
+# Build the server
+RUN npm run build
+
+# Set the working directory for the frontend
 WORKDIR /app/frontend
-COPY frontend/package.json frontend/package-lock.json ./
+
+# Copy frontend package.json and package-lock.json
+COPY frontend/package*.json ./
+
+# Install frontend dependencies
 RUN npm install
-COPY frontend .
-RUN npm run build --prod
 
-# Stage 2: Build the server application
-FROM node:14 AS build-server
-WORKDIR /app/server
-COPY server/package.json server/package-lock.json ./
-RUN npm install
-COPY server .
+# Copy the rest of the frontend code
+COPY frontend/ .
 
-# Stage 3: Serve the application
-FROM nginx:alpine AS serve-frontend
-COPY --from=build-frontend /app/frontend/dist/frontend /usr/share/nginx/html
+# Build the frontend
+RUN npm run build
 
-FROM node:14 AS serve-server
-WORKDIR /app/server
-COPY --from=build-server /app/server .
-COPY --from=serve-frontend /usr/share/nginx/html /usr/share/nginx/html
+# Expose the port the server runs on
 EXPOSE 3000
-CMD ["node", "server.js"]
+
+# Define the command to run the server
+CMD ["npm", "start", "--prefix", "server"]
