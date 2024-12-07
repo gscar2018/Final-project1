@@ -1,0 +1,37 @@
+/* Base container style for the editor's choice summary */
+.editor-choice-summary {
+    max-width: 800px; /* Limit the width for readability */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    background-color: #f0f8ff; /* Light blue background for a fresh look */
+    border-radius: 8px; /* Rounded corners for a softer appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Arial', sans-serif; /* Clean and modern font family */
+  }
+  
+  /* Header for the title */
+  .editor-choice-summary h2 {
+    font-size: 24px; /* Slightly larger font size for emphasis */
+    color: #007bff; /* Blue color for emphasis */
+    margin-bottom: 20px;
+    text-align: center; /* Center the title */
+  }
+  
+  /* Paragraph styling for the content */
+  .editor-choice-summary p {
+    font-size: 16px; /* Standard paragraph font size */
+    line-height: 1.6; /* Improved readability with more line height */
+    color: #333; /* Dark gray text for readability */
+    margin-bottom: 15px;
+  }
+  
+  /* Link styling within the summary */
+  .editor-choice-summary a {
+    color: #007bff; /* Link color matches the header */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .editor-choice-summary a:hover {
+    text-decoration: underline; /* Underline on hover for link emphasis */
+  }
+  

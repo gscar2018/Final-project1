@@ -1,0 +1,31 @@
+.top-menu {
+    background-color: #333;
+    padding: 10px 20px;
+  }
+  
+  .top-menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .top-menu li {
+    padding: 10px;
+  }
+  
+  .top-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .top-menu a:hover {
+    color: #ff9800;
+  }
+  
+  .active {
+    font-weight: bold;
+  }
+  
